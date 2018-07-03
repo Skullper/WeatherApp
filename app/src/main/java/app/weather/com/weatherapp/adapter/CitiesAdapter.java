@@ -53,11 +53,21 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
         return items.size();
     }
 
-    public void addItems(List<CityItem> newItems) {
+    public void setItems(List<CityItem> newItems) {
         int fromPosition = items.size();
-        items.addAll(newItems);
-        if (fromPosition != 0) {
-            notifyItemRangeInserted(fromPosition, newItems.size());
+        items = newItems;
+//        if (fromPosition != 0) {
+//            notifyItemRangeInserted(fromPosition, newItems.size());
+//        } else {
+            notifyDataSetChanged();
+//        }
+    }
+
+    public void addItem(CityItem item){
+        int fromPosition = items.size();
+        items.add(item);
+        if (fromPosition != 0){
+            notifyItemInserted(fromPosition);
         } else {
             notifyDataSetChanged();
         }

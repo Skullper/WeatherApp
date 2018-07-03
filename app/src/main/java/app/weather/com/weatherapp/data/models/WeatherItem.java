@@ -18,9 +18,11 @@ public class WeatherItem {
     @PrimaryKey
     private int    id;
     private String name;
-    private int    timeInMillis;
+    private long   timeInMillis;
     private String description;
     private String iconUrl;
+    private int    humidity;
+    private int    pressure;
     private double windSpeed;
     private int    rain;
     private int    clouds; //in %
@@ -31,13 +33,15 @@ public class WeatherItem {
     }
 
     @Ignore
-    public WeatherItem(int id, String name, int timeInMillis, String description, String iconUrl,
+    public WeatherItem(int id, String name, long timeInMillis, String description, String iconUrl,
                        int humidity, int pressure, double windSpeed, int rain, int clouds, double temperature) {
         this.id = id;
         this.name = name;
         this.timeInMillis = timeInMillis;
         this.description = description;
         this.iconUrl = iconUrl;
+        this.humidity = humidity;
+        this.pressure = pressure;
         this.windSpeed = windSpeed;
         this.rain = rain;
         this.clouds = clouds;
@@ -60,11 +64,11 @@ public class WeatherItem {
         this.name = name;
     }
 
-    public int getTimeInMillis() {
+    public long getTimeInMillis() {
         return timeInMillis;
     }
 
-    public void setTimeInMillis(int timeInMillis) {
+    public void setTimeInMillis(long timeInMillis) {
         this.timeInMillis = timeInMillis;
     }
 
@@ -82,6 +86,22 @@ public class WeatherItem {
 
     public void setIconUrl(String iconUrl) {
         this.iconUrl = iconUrl;
+    }
+
+    public int getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(int humidity) {
+        this.humidity = humidity;
+    }
+
+    public int getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(int pressure) {
+        this.pressure = pressure;
     }
 
     public double getWindSpeed() {

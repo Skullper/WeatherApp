@@ -7,4 +7,10 @@
 	<string name="dialog_add_city_title">Enter city name and add it to your list</string>
 	<string name="dialog_add_city_title_btn">Add</string>
 	<string name="dialog_add_city_no_name_error">You should enter city name first</string>
+
+	<!--Exceptions-->
+	<string name="error_no_connection">Check your internet connection</string>
+	<string name="error_city_not_found">City not found</string>
+	<string name="error_magic">Network issues. Try later</string>
+
 </resources>

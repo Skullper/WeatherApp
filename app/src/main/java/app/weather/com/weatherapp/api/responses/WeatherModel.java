@@ -1,5 +1,7 @@
 package app.weather.com.weatherapp.api.responses;
 
+import android.support.annotation.Nullable;
+
 import java.util.List;
 
 import app.weather.com.weatherapp.data.models.TemperatureModel;
@@ -15,8 +17,9 @@ public class WeatherModel {
     private TemperatureModel main;
     private Wind             wind;
     private Clouds           clouds;
-    private Rain             rain;
-    private int              dt; //time stamp
+    private @Nullable
+            Rain             rain;
+    private long              dt; //time stamp
 
     public int getId() {
         return id;
@@ -51,6 +54,7 @@ public class WeatherModel {
     }
 
     public int getRain() {
+        if (rain == null) return 0;
         return rain.getRain();
     }
 
@@ -58,7 +62,7 @@ public class WeatherModel {
         return clouds.getAll();
     }
 
-    public int getDt() {
+    public long getDt() {
         return dt;
     }
 }

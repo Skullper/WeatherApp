@@ -2,6 +2,7 @@ package app.weather.com.weatherapp.utils;
 
 import android.support.annotation.StringRes;
 
+import java.util.List;
 import java.util.Locale;
 
 import app.weather.com.weatherapp.App;
@@ -27,11 +28,11 @@ public final class StringUtils {
         return format(getString(resourceId), args);
     }
 
-    public static String convertToString(int[] array) {
-        String result = String.valueOf(array[0]);
-        for (int i = 1; i < array.length; i++) {
-            result = "," + array[i];
+    public static String convertToString(List<Integer> array) {
+        StringBuilder result = new StringBuilder(String.valueOf(array.get(0)));
+        for (int i = 1; i < array.size(); i++) {
+            result.append(",").append(array.get(i));
         }
-        return result;
+        return result.toString();
     }
 }

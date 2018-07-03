@@ -18,9 +18,15 @@ public class WeatherMapper {
         List<WeatherItem> tempList = new ArrayList<>(data.size());
         for (WeatherModel it : data) {
             tempList.add(new WeatherItem(it.getId(), it.getName(), it.getDt(), it.getWeatherDescription(),
-                    it.getWeatherDescription(), it.getHumidity(), it.getPressure(), it.getWindSpeed(),
+                    it.getWeatherIconUrl(), it.getHumidity(), it.getPressure(), it.getWindSpeed(),
                     it.getRain(), it.getClouds(), it.getCurrentTemperature()));
         }
         return tempList;
+    }
+
+    public WeatherItem transformTo(WeatherModel it){
+        return new WeatherItem(it.getId(), it.getName(), it.getDt(), it.getWeatherDescription(),
+                it.getWeatherIconUrl(), it.getHumidity(), it.getPressure(), it.getWindSpeed(),
+                it.getRain(), it.getClouds(), it.getCurrentTemperature());
     }
 }

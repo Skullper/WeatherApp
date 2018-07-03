@@ -8,7 +8,7 @@ import android.arch.persistence.room.Query;
 import java.util.List;
 
 import app.weather.com.weatherapp.data.models.WeatherItem;
-import io.reactivex.Observable;
+import io.reactivex.Single;
 
 import static app.weather.com.weatherapp.db.AppDatabase.WEATHER_TABLE_NAME;
 
@@ -22,9 +22,15 @@ import static app.weather.com.weatherapp.db.AppDatabase.WEATHER_TABLE_NAME;
 public interface WeatherDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void setTasks(List<WeatherItem> items);
+    void insertCities(List<WeatherItem> items);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertCity(WeatherItem city);
 
     @Query("SELECT * FROM " + WEATHER_TABLE_NAME)
-    Observable<List<WeatherItem>> getTasks();
+    Single<List<WeatherItem>> getCities();
+
+    @Query("SELECT id FROM " + WEATHER_TABLE_NAME)
+    Single<List<Integer>> getIds();
 
 }

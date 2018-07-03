@@ -14,4 +14,8 @@ import app.weather.com.weatherapp.base.BaseView;
 public interface MainView extends BaseView {
 
     void onWeatherFetched(List<CityItem> items);
+
+    void onCityAdded(CityItem item);
+
+    void onError(String message);
 }
