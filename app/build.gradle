@@ -16,6 +16,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+//    packagingOptions {
+//        exclude 'META-INF/rxjava.properties'
+//    }
 }
 
 dependencies {
@@ -34,7 +37,7 @@ dependencies {
     }
     implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
     implementation "com.squareup.okhttp3:logging-interceptor:${versions.okHttp}"
-    implementation "com.squareup.retrofit2:adapter-rxjava:${versions.retrofit}"
+    implementation ("com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}")
 
     //Database
     implementation "android.arch.persistence.room:runtime:${versions.room}"
