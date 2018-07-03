@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<FrameLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".screens.MainActivity">
+	android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+	<ProgressBar
+		android:id="@+id/pb_main"
+		style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:indeterminate="true"/>
+
+	<android.support.v7.widget.RecyclerView
+		android:id="@+id/rv_main_cities"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		tools:listitem="@layout/item_city"/>
+
+	<android.support.design.widget.FloatingActionButton
+		android:id="@+id/fab_main_add"
+		android:layout_width="@dimen/fab_size"
+		android:layout_height="@dimen/fab_size"
+		android:layout_gravity="bottom|end"
+		android:layout_margin="@dimen/layout_margin"
+		android:scaleType="center"
+		android:src="@drawable/ic_add"/>
+
+</FrameLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="@dimen/item_city_height"
+	android:background="@drawable/shape_rounded_view"
+	android:elevation="@dimen/elevation"
+	android:padding="@dimen/view_padding">
+
+	<TextView
+		android:id="@+id/tv_item_city_name"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_vertical"
+		android:textColor="@color/colorPrimaryText"
+		tools:text="Kiev"/>
+
+	<TextView
+		android:id="@+id/tv_item_city_temperature"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="end|center_vertical"
+		tools:text="+28&#xb0;"/>
+
+</FrameLayout>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+
+	<!--Main-->
+	<string name="main_toolbar_title">Cities</string>
+	<string name="item_city_temperature">+%.0f&#xb0;</string>
 </resources>

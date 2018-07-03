@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!--Common-->
+	<dimen name="layout_margin">16dp</dimen>
+
+	<!--Views-->
+	<dimen name="view_padding">16dp</dimen>
+	<dimen name="small_view_padding">8dp</dimen>
+	<dimen name="rounded_view_corner">5dp</dimen>
+	<dimen name="elevation">2dp</dimen>
+	<dimen name="elevation_disabled">0dp</dimen>
+	<dimen name="fab_size">56dp</dimen>
+
+	<!--Main-->
+	<dimen name="item_city_height">48dp</dimen>
+</resources>

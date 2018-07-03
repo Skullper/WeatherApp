@@ -31,6 +31,8 @@ ext.versions = [
         constraint : "1.1.2",
         retrofit : "2.3.0",
         room : "1.1.1",
+        butterknife : "8.8.1",
         okHttp : "3.9.0",
-        timber : "4.7.0"
+        timber : "4.7.0",
+        rxAndroid : "2.0.2"
 ]

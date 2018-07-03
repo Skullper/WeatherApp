@@ -16,9 +16,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    packagingOptions {
-//        exclude 'META-INF/rxjava.properties'
-//    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -28,6 +29,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:${versions.support}"
     implementation "com.android.support.constraint:constraint-layout:${versions.constraint}"
     implementation "com.android.support:recyclerview-v7:${versions.support}"
+    implementation "com.android.support:design:${versions.support}"
 
     //Network
     implementation "com.squareup.okhttp3:okhttp:${versions.okHttp}"
@@ -46,4 +48,7 @@ dependencies {
 
     //utils
     implementation "com.jakewharton.timber:timber:${versions.timber}"
+    implementation "com.jakewharton:butterknife:${versions.butterknife}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${versions.butterknife}"
+    implementation "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
 }
