@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.weather.com.weatherapp.R;
-import app.weather.com.weatherapp.api.models.CityItem;
+import app.weather.com.weatherapp.data.models.CityItem;
 import app.weather.com.weatherapp.utils.StringUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;

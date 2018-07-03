@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/shape_rounded_view"
+	android:backgroundTint="@color/colorWindowBg"
+	android:gravity="center_horizontal"
+	android:orientation="vertical"
+	android:paddingBottom="@dimen/view_padding">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:padding="@dimen/view_padding"
+		android:text="@string/dialog_add_city_title"
+		android:textColor="@color/colorSecondaryText"
+		android:textSize="@dimen/dialog_add_city_title_text_size"/>
+
+	<EditText
+		android:id="@+id/et_dialog_add_city"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/et_height"
+		android:layout_marginEnd="@dimen/layout_margin"
+		android:layout_marginStart="@dimen/layout_margin"
+		android:background="@drawable/shape_rounded_view"
+		android:inputType="text"
+		android:paddingEnd="@dimen/small_view_padding"
+		android:paddingStart="@dimen/small_view_padding"
+		android:textColor="@color/colorPrimaryText"
+		android:textCursorDrawable="@null"
+		tools:ignore="LabelFor"
+		tools:text="Kropyvnytskyi"/>
+
+	<android.support.v7.widget.AppCompatButton
+		android:id="@+id/btn_dialog_add_city"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/layout_margin"
+		android:backgroundTint="@color/colorPrimary"
+		android:text="@string/dialog_add_city_title_btn"
+		android:textAllCaps="false"
+		android:textColor="@color/colorWhite"/>
+
+</LinearLayout>

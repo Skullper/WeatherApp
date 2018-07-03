@@ -2,7 +2,7 @@ package app.weather.com.weatherapp.mvp.views;
 
 import java.util.List;
 
-import app.weather.com.weatherapp.api.models.CityItem;
+import app.weather.com.weatherapp.data.models.CityItem;
 import app.weather.com.weatherapp.base.BaseView;
 
 /**

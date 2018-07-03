@@ -1,5 +1,6 @@
 package app.weather.com.weatherapp.api;
 
+import app.weather.com.weatherapp.api.responses.CityWeatherResponse;
 import app.weather.com.weatherapp.api.responses.WeatherResponse;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -14,7 +15,9 @@ import retrofit2.http.Query;
 public interface Api {
 
     @GET("group")
-    Observable<WeatherResponse> getTempByCity(@Query("id") String arrayOfIds,
-                                              @Query("units") String unit);
+    Observable<WeatherResponse> getWeatherForGroupOfCities(@Query("id") String arrayOfIds);
+
+    @GET("weather")
+    Observable<CityWeatherResponse> getWeatherByCityName(@Query("q") String cityName);
 
 }

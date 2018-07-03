@@ -19,8 +19,12 @@ public final class StringUtils {
         return App.getContext().getString(resourceId);
     }
 
+    public static String format(String text, Object... args) {
+        return String.format(Locale.US, text, args);
+    }
+
     public static String format(@StringRes int resourceId, Object... args) {
-        return String.format(Locale.US, getString(resourceId), args);
+        return format(getString(resourceId), args);
     }
 
     public static String convertToString(int[] array) {

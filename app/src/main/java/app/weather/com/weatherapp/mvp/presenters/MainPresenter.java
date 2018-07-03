@@ -22,7 +22,7 @@ public class MainPresenter extends BasePresenter<MainView, MainModel> {
     }
 
     public void getWeather(int[] ids) {
-        disposable.add(model.getTemperature(ids) //
+        disposable.add(model.getCities(ids) //
                 .subscribe(view::onWeatherFetched, Timber::e));
     }
 

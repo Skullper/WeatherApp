@@ -1,6 +1,6 @@
 package app.weather.com.weatherapp.api.responses;
 
-import app.weather.com.weatherapp.api.models.TemperatureModel;
+import app.weather.com.weatherapp.data.models.TemperatureModel;
 
 /**
  * Created by pugman on 03.07.18.

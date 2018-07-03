@@ -1,6 +1,6 @@
 package app.weather.com.weatherapp.adapter;
 
-import app.weather.com.weatherapp.api.models.CityItem;
+import app.weather.com.weatherapp.data.models.CityItem;
 
 /*
  * Created by pugman on 03.07.18.

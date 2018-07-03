@@ -13,6 +13,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static app.weather.com.weatherapp.utils.Constantaz.API_KEY;
+import static app.weather.com.weatherapp.utils.Constantaz.CELCIUS;
 
 /**
  * Singleton class designed for work with retrofit 2 library.
@@ -61,7 +62,7 @@ public final class RestClient {
     private OkHttpClient getClient() {
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
         clientBuilder.addInterceptor(getAcceptInterceptor());
-        clientBuilder.addInterceptor(getApiKeyInterceptor());
+        clientBuilder.addInterceptor(getWeatherInterceptor());
         clientBuilder.addInterceptor(getLoggingInterceptor());
         clientBuilder.connectTimeout(30, TimeUnit.SECONDS)//
                 .readTimeout(30, TimeUnit.SECONDS)//
@@ -79,12 +80,13 @@ public final class RestClient {
         };
     }
 
-    private Interceptor getApiKeyInterceptor(){
+    private Interceptor getWeatherInterceptor(){
         return chain -> {
             Request original = chain.request();
             HttpUrl originalHttpUrl = original.url();
 
             HttpUrl url = originalHttpUrl.newBuilder()
+                    .addQueryParameter("units", CELCIUS)
                     .addQueryParameter("appid", API_KEY)
                     .build();
 

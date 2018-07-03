@@ -1,4 +1,4 @@
-package app.weather.com.weatherapp.api.mappers;
+package app.weather.com.weatherapp.data.mappers;
 
 /**
  * Created by pugman on 03.07.18.

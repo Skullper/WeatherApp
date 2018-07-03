@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import app.weather.com.weatherapp.api.RestClient;
+import app.weather.com.weatherapp.db.AppDatabase;
 import app.weather.com.weatherapp.utils.TimberCrashReportingTree;
 import timber.log.Timber;
 
@@ -36,7 +37,7 @@ public class App extends Application {
         //Retrofit init
         RestClient.init(END_POINT);
         //Create database
-//        AppDatabase.create(getApplicationContext());
+        AppDatabase.create(getApplicationContext());
     }
 
 }
