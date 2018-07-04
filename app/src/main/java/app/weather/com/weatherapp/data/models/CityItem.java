@@ -10,14 +10,14 @@ public class CityItem {
 
     private final int    id;
     private final String cityName;
-    private final String date;
+    private final String time;
     private final double temp;
     private final String iconUrl;
 
-    public CityItem(int id, String cityName, String date, double temp, String iconUrl) {
+    public CityItem(int id, String cityName, String time, double temp, String iconUrl) {
         this.id = id;
         this.cityName = cityName;
-        this.date = date;
+        this.time = time;
         this.temp = temp;
         this.iconUrl = iconUrl;
     }
@@ -30,8 +30,8 @@ public class CityItem {
         return cityName;
     }
 
-    public String getDate() {
-        return date;
+    public String getTime() {
+        return time;
     }
 
     public double getTemp() {

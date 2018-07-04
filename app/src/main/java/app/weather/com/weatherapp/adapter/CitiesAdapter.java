@@ -82,7 +82,7 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
         holder.itemView.setOnClickListener(view -> {
             int selectedPosition = holder.getAdapterPosition();
             if (selectedPosition != RecyclerView.NO_POSITION && items != null) {
-                listener.onCityClick(items.get(selectedPosition));
+                listener.onCityClick(items.get(selectedPosition).getId());
             }
         });
     }
@@ -105,7 +105,7 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
 
         void bind(CityItem item) {
             tvCity.setText(item.getCityName());
-            tvDate.setText(item.getDate());
+            tvDate.setText(item.getTime());
             tvTemp.setText(StringUtils.format(R.string.item_city_temperature, item.getTemp()));
             picasso.load(item.getIconUrl()).into(ivIcon);
         }

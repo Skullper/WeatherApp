@@ -1,15 +1,21 @@
 package app.weather.com.weatherapp.db;
 
+import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import java.util.concurrent.Executors;
+
 import app.weather.com.weatherapp.data.models.WeatherItem;
 import app.weather.com.weatherapp.db.dao.WeatherDao;
 
 import static app.weather.com.weatherapp.utils.Constantaz.DB_NAME;
+import static app.weather.com.weatherapp.utils.Constantaz.ICON_PATH;
+import static app.weather.com.weatherapp.utils.Constantaz.KIEV;
+import static app.weather.com.weatherapp.utils.StringUtils.format;
 
 /**
  * Class responsible for building a database and saving instance for it. This class also provides
@@ -31,8 +37,19 @@ public abstract class AppDatabase extends RoomDatabase {
             synchronized(AppDatabase.class) {
                 if (instance == null) {
                     instance = Room.databaseBuilder(context, AppDatabase.class, DB_NAME) //
-                            .fallbackToDestructiveMigration() //allow drop table after version update
+                            .addCallback(new Callback() {
+                                @Override
+                                public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                                    super.onCreate(db);
+                                    Executors.newSingleThreadExecutor().execute(() -> get().getWeatherDao().insertCity(prePopulateKiev()));
+                                }
+                            }).fallbackToDestructiveMigration() //allow drop table after version update
                             .build();
+                    //Run this to trigger room onCreate() callback
+                    Executors.newSingleThreadExecutor().execute(() -> {
+                        AppDatabase.get().beginTransaction();
+                        AppDatabase.get().endTransaction();
+                    });
                 }
             }
         }
@@ -47,4 +64,9 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract WeatherDao getWeatherDao();
 
+    private static WeatherItem prePopulateKiev() {
+        return new WeatherItem(KIEV, "Kiev", System.currentTimeMillis(), "Clear sky",//
+                format(ICON_PATH, "01d"), 59, 1014, 4, 0, //
+                0, 18.68);
+    }
 }

@@ -1,7 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	android:padding="@dimen/view_padding"
+	tools:ignore="ContentDescription">
+
+	<ImageView
+		android:id="@+id/iv_detailed"
+		android:layout_width="@dimen/detailed_image_size"
+		android:layout_height="@dimen/detailed_image_size"
+		android:layout_marginTop="@dimen/layout_margin"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:src="@mipmap/ic_launcher"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_description"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/layout_margin"
+		android:textColor="@color/colorPrimaryText"
+		android:textSize="18sp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/iv_detailed"
+		tools:text="Clear sky"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_label_temperature"
+		style="@style/DetailedLabelTextStyle"
+		android:text="@string/detailed_label_temp"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/tv_detailed_description"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_temperature"
+		style="@style/DetailedValueTextStyle"
+		app:layout_constraintBottom_toBottomOf="@+id/tv_detailed_label_temperature"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/tv_detailed_label_temperature"
+		tools:text="+13&#xb0;"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_label_humidity"
+		style="@style/DetailedLabelTextStyle"
+		android:text="@string/detailed_label_humidity"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/tv_detailed_label_temperature"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_humidity"
+		style="@style/DetailedValueTextStyle"
+		app:layout_constraintBottom_toBottomOf="@+id/tv_detailed_label_humidity"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/tv_detailed_label_humidity"
+		tools:text="78%"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_label_pressure"
+		style="@style/DetailedLabelTextStyle"
+		android:text="@string/detailed_label_pressure"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/tv_detailed_label_humidity"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_pressure"
+		style="@style/DetailedValueTextStyle"
+		app:layout_constraintBottom_toBottomOf="@+id/tv_detailed_label_pressure"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/tv_detailed_label_pressure"
+		tools:text="985 hPa"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_label_wind"
+		style="@style/DetailedLabelTextStyle"
+		android:text="@string/detailed_label_wind"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/tv_detailed_label_pressure"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_wind"
+		style="@style/DetailedValueTextStyle"
+		app:layout_constraintBottom_toBottomOf="@+id/tv_detailed_label_wind"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/tv_detailed_label_wind"
+		tools:text="5 m/s"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_label_rain"
+		style="@style/DetailedLabelTextStyle"
+		android:text="@string/detailed_label_rain"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/tv_detailed_label_wind"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_rain"
+		style="@style/DetailedValueTextStyle"
+		app:layout_constraintBottom_toBottomOf="@+id/tv_detailed_label_rain"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/tv_detailed_label_rain"
+		tools:text="15 mm"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_label_clouds"
+		style="@style/DetailedLabelTextStyle"
+		android:text="@string/detailed_label_clouds"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/tv_detailed_label_rain"/>
+
+	<TextView
+		android:id="@+id/tv_detailed_clouds"
+		style="@style/DetailedValueTextStyle"
+		app:layout_constraintBottom_toBottomOf="@+id/tv_detailed_label_clouds"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/tv_detailed_label_clouds"
+		tools:text="0%"/>
 
 </android.support.constraint.ConstraintLayout>

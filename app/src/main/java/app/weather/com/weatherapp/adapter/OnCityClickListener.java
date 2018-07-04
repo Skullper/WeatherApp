@@ -1,7 +1,5 @@
 package app.weather.com.weatherapp.adapter;
 
-import app.weather.com.weatherapp.data.models.CityItem;
-
 /*
  * Created by pugman on 03.07.18.
  * Contact the developer - sckalper@gmail.com
@@ -13,5 +11,5 @@ import app.weather.com.weatherapp.data.models.CityItem;
  */
 public interface OnCityClickListener {
 
-    void onCityClick(CityItem item);
+    void onCityClick(int id);
 }

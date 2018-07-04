@@ -21,6 +21,7 @@ import static app.weather.com.weatherapp.utils.StringUtils.getString;
 public class MainPresenter extends BasePresenter<MainView, MainModel> {
 
     private final CompositeDisposable disposable;
+    private       Thread              timer;
 
     public MainPresenter(MainView view) {
         super(view, new MainModel());
@@ -29,12 +30,13 @@ public class MainPresenter extends BasePresenter<MainView, MainModel> {
 
     @Override
     public void destroy() {
+        timer.interrupt();
         disposable.clear();
     }
 
     public void getWeather() {
-        disposable.add(model.getCities() //
-                .subscribe(view::onWeatherFetched, Timber::e));
+        timer = getTimer();
+        timer.start();
     }
 
     public void addCity(String name) {
@@ -60,5 +62,27 @@ public class MainPresenter extends BasePresenter<MainView, MainModel> {
             errorMessage = getString(R.string.error_magic);
         }
         return errorMessage;
+    }
+
+    private Thread getTimer() {
+        return new Thread(new Runnable() {
+
+            int lastMinute;
+            int currentMinute;
+
+            @Override
+            public void run() {
+                lastMinute = currentMinute;
+                while (true) {
+                    if (timer.isInterrupted()) break;
+                    currentMinute = (int) ((System.currentTimeMillis() / (1000 * 60)) % 60);
+                    if (currentMinute != lastMinute) {
+                        lastMinute = currentMinute;
+                        disposable.add(model.getCities() //
+                                .subscribe(view::onWeatherFetched, Timber::e));
+                    }
+                }
+            }
+        });
     }
 }

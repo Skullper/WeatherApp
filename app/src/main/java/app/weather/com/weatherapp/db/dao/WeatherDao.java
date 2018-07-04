@@ -33,4 +33,7 @@ public interface WeatherDao {
     @Query("SELECT id FROM " + WEATHER_TABLE_NAME)
     Single<List<Integer>> getIds();
 
+    @Query("SELECT * FROM " + WEATHER_TABLE_NAME + " WHERE id=:cityId")
+    Single<WeatherItem> getCityById(int cityId);
+
 }

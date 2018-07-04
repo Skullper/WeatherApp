@@ -23,7 +23,6 @@ import app.weather.com.weatherapp.mvp.views.MainView;
 import app.weather.com.weatherapp.providers.impls.Toaster;
 import butterknife.BindView;
 import butterknife.OnClick;
-import timber.log.Timber;
 
 public class MainActivity extends BaseActivity<MainPresenter> implements MainView {
 
@@ -50,6 +49,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainVie
         pbContentLoading.setVisibility(View.GONE);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.main_toolbar_title);
         initRecycler();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         presenter.getWeather();
     }
 
@@ -74,7 +78,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainVie
         rvCities.setItemAnimator(new DefaultItemAnimator());
         rvCities.setHasFixedSize(true);
         rvCities.addItemDecoration(new CityItemDecoration());
-        adapter = new CitiesAdapter(Picasso.with(this), item -> Timber.d("Name: %s", item.getCityName()));
+        adapter = new CitiesAdapter(Picasso.with(this), item -> startActivity(DetailedWeatherActivity.provideIntent(this, item)));
         rvCities.setAdapter(adapter);
     }
 

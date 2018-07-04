@@ -19,7 +19,6 @@ public class WeatherModel {
     private Clouds           clouds;
     private @Nullable
             Rain             rain;
-    private long              dt; //time stamp
 
     public int getId() {
         return id;
@@ -63,6 +62,6 @@ public class WeatherModel {
     }
 
     public long getDt() {
-        return dt;
+        return System.currentTimeMillis();
     }
 }
