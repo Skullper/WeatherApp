@@ -10,12 +10,16 @@ public class CityItem {
 
     private final int    id;
     private final String cityName;
+    private final String date;
     private final double temp;
+    private final String iconUrl;
 
-    public CityItem(int id, String cityName, double temp) {
+    public CityItem(int id, String cityName, String date, double temp, String iconUrl) {
         this.id = id;
         this.cityName = cityName;
+        this.date = date;
         this.temp = temp;
+        this.iconUrl = iconUrl;
     }
 
     public int getId() {
@@ -26,9 +30,15 @@ public class CityItem {
         return cityName;
     }
 
+    public String getDate() {
+        return date;
+    }
 
     public double getTemp() {
         return temp;
     }
 
+    public String getIconUrl() {
+        return iconUrl;
+    }
 }

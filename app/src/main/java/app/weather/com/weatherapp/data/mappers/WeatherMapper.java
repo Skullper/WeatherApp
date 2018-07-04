@@ -17,9 +17,7 @@ public class WeatherMapper {
     public List<WeatherItem> transformTo(List<WeatherModel> data) {
         List<WeatherItem> tempList = new ArrayList<>(data.size());
         for (WeatherModel it : data) {
-            tempList.add(new WeatherItem(it.getId(), it.getName(), it.getDt(), it.getWeatherDescription(),
-                    it.getWeatherIconUrl(), it.getHumidity(), it.getPressure(), it.getWindSpeed(),
-                    it.getRain(), it.getClouds(), it.getCurrentTemperature()));
+            tempList.add(transformTo(it));
         }
         return tempList;
     }

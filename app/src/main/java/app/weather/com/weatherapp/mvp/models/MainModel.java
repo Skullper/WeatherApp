@@ -15,8 +15,6 @@ import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-import static app.weather.com.weatherapp.utils.StringUtils.convertToString;
-
 /**
  * Created by pugman on 03.07.18.
  * Contact the developer - sckalper@gmail.com
@@ -50,7 +48,7 @@ public class MainModel {
                 .subscribeOn(Schedulers.io())
                 .map(new WeatherMapper()::transformTo)
                 .doOnNext(dao::insertCity)
-                .map(it -> new CityItem(it.getId(), it.getName(), it.getTemperature()))
+                .map(new CityMapper()::transformTo)
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
@@ -78,6 +76,14 @@ public class MainModel {
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .subscribe();
+    }
+
+    private String convertToString(List<Integer> array) {
+        StringBuilder result = new StringBuilder(String.valueOf(array.get(0)));
+        for (int i = 1; i < array.size(); i++) {
+            result.append(",").append(array.get(i));
+        }
+        return result.toString();
     }
 
 }

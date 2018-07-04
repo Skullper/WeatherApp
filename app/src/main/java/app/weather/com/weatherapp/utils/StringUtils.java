@@ -2,7 +2,9 @@ package app.weather.com.weatherapp.utils;
 
 import android.support.annotation.StringRes;
 
-import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import app.weather.com.weatherapp.App;
@@ -28,11 +30,10 @@ public final class StringUtils {
         return format(getString(resourceId), args);
     }
 
-    public static String convertToString(List<Integer> array) {
-        StringBuilder result = new StringBuilder(String.valueOf(array.get(0)));
-        for (int i = 1; i < array.size(); i++) {
-            result.append(",").append(array.get(i));
-        }
-        return result.toString();
+    public static String toTime(long dt){
+        Date date = new Date(dt);
+        DateFormat dateFormat = SimpleDateFormat.getTimeInstance();
+        return dateFormat.format(date);
     }
+
 }

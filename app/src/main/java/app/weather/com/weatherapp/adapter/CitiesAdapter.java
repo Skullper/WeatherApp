@@ -5,7 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +32,10 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
 
     private List<CityItem> items = new ArrayList<>();
     private final OnCityClickListener listener;
+    private final Picasso picasso;
 
-    public CitiesAdapter(OnCityClickListener listener) {
+    public CitiesAdapter(Picasso picasso, OnCityClickListener listener) {
+        this.picasso = picasso;
         this.listener = listener;
     }
 
@@ -56,17 +61,17 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
     public void setItems(List<CityItem> newItems) {
         int fromPosition = items.size();
         items = newItems;
-//        if (fromPosition != 0) {
-//            notifyItemRangeInserted(fromPosition, newItems.size());
-//        } else {
+        if (fromPosition != 0) {
+            notifyItemRangeInserted(fromPosition, newItems.size());
+        } else {
             notifyDataSetChanged();
-//        }
+        }
     }
 
-    public void addItem(CityItem item){
+    public void addItem(CityItem item) {
         int fromPosition = items.size();
         items.add(item);
-        if (fromPosition != 0){
+        if (fromPosition != 0) {
             notifyItemInserted(fromPosition);
         } else {
             notifyDataSetChanged();
@@ -82,21 +87,27 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
         });
     }
 
-    public static class CityViewHolder extends RecyclerView.ViewHolder {
+    public class CityViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.tv_item_city_name)
         TextView tvCity;
+        @BindView(R.id.tv_item_city_date)
+        TextView tvDate;
         @BindView(R.id.tv_item_city_temperature)
         TextView tvTemp;
+        @BindView(R.id.iv_item_city)
+        ImageView ivIcon;
 
-        public CityViewHolder(View itemView) {
+        CityViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
 
-        public void bind(CityItem item) {
+        void bind(CityItem item) {
             tvCity.setText(item.getCityName());
+            tvDate.setText(item.getDate());
             tvTemp.setText(StringUtils.format(R.string.item_city_temperature, item.getTemp()));
+            picasso.load(item.getIconUrl()).into(ivIcon);
         }
     }
 }

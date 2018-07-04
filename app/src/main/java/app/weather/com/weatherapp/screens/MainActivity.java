@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -72,7 +74,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainVie
         rvCities.setItemAnimator(new DefaultItemAnimator());
         rvCities.setHasFixedSize(true);
         rvCities.addItemDecoration(new CityItemDecoration());
-        adapter = new CitiesAdapter(item -> Timber.d("Name: %s", item.getCityName()));
+        adapter = new CitiesAdapter(Picasso.with(this), item -> Timber.d("Name: %s", item.getCityName()));
         rvCities.setAdapter(adapter);
     }
 
